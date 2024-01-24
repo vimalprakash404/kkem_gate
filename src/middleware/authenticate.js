@@ -14,8 +14,10 @@ function isAuthenticatetedPlatform(req, res, next){
 
 function isAuthenticateted(req, res, next , key)
 {
-    if (typeof req.headers.authorization !== "undefined") {
-        let token = req.headers.authorization.split(" ")[1];
+    const {authorizationkey} = req.headers;
+    if (typeof authorizationkey !== "undefined") {
+        let token = authorizationkey;
+        
         try{
             jwt.verify(token, key, (err, user) => {
                 if (err instanceof jwt.JsonWebTokenError) {
