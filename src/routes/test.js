@@ -4,5 +4,5 @@ const {isAuthenticatetedPlatform} = require("../middleware/authenticate")
 router.use(express.json())
 const  {create , updateResult ,test_result_update_validator}= require("../controllers/test")
 router.post("/create", create);
-router.put("/update/result",isAuthenticatetedPlatform,test_result_update_validator,updateResult);
+router.post("/update/result",isAuthenticatetedPlatform,test_result_update_validator,updateResult);
 module.exports = router ;
