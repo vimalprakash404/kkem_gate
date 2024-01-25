@@ -17,7 +17,6 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-
 //router 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req, res, next) {
