@@ -1,7 +1,25 @@
 const fs = require("fs")
 const jwt = require("jsonwebtoken")
+const secretKey = require("../service/getPrivateKey")
 const KKEM = "KKEM" ;
 const platform_key = "platform" ;
+
+function authenticateCandidate(req, res, next) {
+    const token = req.header('Authorization');
+  
+    if (!token) {
+      return res.status(401).json({ error: 'Access denied' });
+    }
+  
+    jwt.verify(token, secretKey, (err, user) => {
+      if (err) {
+        return res.status(403).json({ error: 'Invalid token' });
+      }
+  
+      req.user = user;
+      next();
+    });
+  }
 
 
 function isAuthenticatetedKKEM(req, res, next ) {
@@ -39,4 +57,4 @@ function isAuthenticateted(req, res, next , key)
         throw new Error("Not Authorized")
     }
 }
-module.exports ={ isAuthenticatetedPlatform, isAuthenticatetedKKEM};
+module.exports ={ isAuthenticatetedPlatform, isAuthenticatetedKKEM ,authenticateCandidate};

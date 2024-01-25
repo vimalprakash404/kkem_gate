@@ -1,7 +1,7 @@
 const { body, validationResult } = require('express-validator');
 const Assessment = require("../models/assessment")
 
-
+const {getPlatform} = require("../controllers/platform")
 
 const isAssessmentNameUnqiue =  async (test_name) => {
     const existingAssessment =  await Assessment.findOne({test_name})
@@ -31,6 +31,12 @@ const create = async(req, res) => {
             return res.status(403).json({errors : errors.array()})
         }
         const {test_id , test_name , test_description , platform} = req.body;
+        const platform_object = await getPlatform(platform);
+        if (platform_object === null)
+        {
+            return res.status(404).json({status : "error"  ,message : "plaform not found"})
+        }
+        
         const newAssessment = new Assessment({
             test_id , test_name , test_description, platform
         })

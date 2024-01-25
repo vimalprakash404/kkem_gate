@@ -1,15 +1,14 @@
 const post = require("./methods/post")
-const axios = require("axios").default
-async function platformschedule(baseurl, platform_test_id, key) {
+async function platformschedule(baseurl, platform_test_id, key ,email , firstName , lastName ,startTestTime) {
     const data =new Object ({
-        "testID": "1908715",
+        "testID": `${platform_test_id}`,
         "autoLoginURL": "1",
-        "startTestTime": "2024-24-01 10:56:00",
+        "startTestTime": `${startTestTime}`,
         "hrsToLive": "72",
         "candidateData": {
-        "emailID": "vimalprakash332@gmail.com",
-        "firstName": "Mark",
-        "lastName": "Depp",
+        "emailID": `${email}`,
+        "firstName": `${firstName}`,
+        "lastName": `${lastName}`,
         "customInfo1": "CandID1234",
         "customInfo2": "JobReqID1234",
         "customInfo3": "custom Info 3",
@@ -22,7 +21,7 @@ async function platformschedule(baseurl, platform_test_id, key) {
         "sendEmail": "Y"
         }
     });
-        
+        console.log("data" ,JSON.stringify(data))
     const extend_url = "/api/schedule/schedule" ;
     const res_data =await post(baseurl,extend_url, data,key);
     return res_data;
