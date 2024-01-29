@@ -43,7 +43,7 @@ const candidate =async(req ,res) => {
     }
     else{
       const user = existing_candidate ;
-      const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '24h' });
+      const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '48h' });
       return res.status(200).json({newuser : 0 , data : existing_candidate , "status" : "success" ,autologin : `http://${req.headers.host}?token=${token}`})
     }
   }
