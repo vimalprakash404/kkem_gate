@@ -24,7 +24,7 @@ function getdateTimeNow() {
     const minutes = currentDate.getMinutes().toString().padStart(2, '0');
     const seconds = currentDate.getSeconds().toString().padStart(2, '0');
   
-    const formattedDate = `${year}-${day}-${month} ${hours}:${minutes}:${seconds}`;
+    const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
   
     return formattedDate;
   }
@@ -47,7 +47,7 @@ const create = async (req, res) => {
                 return res.status(404).json({status : "error" , message : "candidate not found"})
             }
             const platform = await getPlatform(assessment_object.platform);
-            console.log(assessment_object.platform)
+            // console.log(assessment_object.platform)
             const data = await platformSchedule(platform.baseUrl, assessment_object.test_id, platform.authKey , candidate_object.email ,candidate_object.firstName , candidate_object.lastName ,getdateTimeNow())
             if (data.status === 'error') {
                 return res.status(data.code).json(data);
@@ -66,6 +66,31 @@ const create = async (req, res) => {
     
 }
 
+const getAllResult = (req , res)=> {
+    try {
+        console.log("vimal ")
+        test.find({})
+        .populate({
+            path: 'candidate',
+            select: '-_id' 
+          })
+          .populate({
+            path: 'assessment',
+            select: '-_id' 
+          })
+        .then((tests) => {
+            console.log(tests);
+            return res.status(200).json({status : "success" , data : tests})
+          })
+          .catch((err) => {
+            console.error(err);
+            return res.status(401).json({status : "error" , error : err})
+          });
+    } 
+    catch(error){
+        return res.status(500).json({status : "error" , message : "server"+ err})
+    }
+}
 
 
 
@@ -86,4 +111,4 @@ const updateResult = async (req, res) => {
 
 }
 
-module.exports = { updateResult, create, test_validator, test_result_update_validator };
+module.exports = { updateResult, create, test_validator, test_result_update_validator , getAllResult };

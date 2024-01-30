@@ -1,5 +1,6 @@
 const post = require("./methods/post")
 async function platformschedule(baseurl, platform_test_id, key ,email , firstName , lastName ,startTestTime) {
+    console.log(startTestTime)
     const data =new Object ({
         "testID": `${platform_test_id}`,
         "autoLoginURL": "1",
@@ -21,7 +22,7 @@ async function platformschedule(baseurl, platform_test_id, key ,email , firstNam
         "sendEmail": "Y"
         }
     });
-        console.log("data" ,JSON.stringify(data))
+        // console.log("data" ,JSON.stringify(data))
     const extend_url = "/api/schedule/schedule" ;
     const res_data =await post(baseurl,extend_url, data,key);
     return res_data;

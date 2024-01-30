@@ -12,7 +12,15 @@ const testSchema =new Schema( {
         require : true 
     },
     "assessment":{ type: Schema.Types.ObjectId, ref: 'Assessment', required: true },
-    "candidate": { type: Schema.Types.ObjectId, ref: 'Candidate', required: true }
+    "candidate": { type: Schema.Types.ObjectId, ref: 'Candidate', required: true } ,
+    start_date_time: {
+        type: Date,
+        default: Date.now
+      },
+      end_date_time : 
+      {
+        type : Date 
+      }
 });
 
 const Test = mongoose.model("Test" , testSchema);
