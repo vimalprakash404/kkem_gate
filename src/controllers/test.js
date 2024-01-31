@@ -5,13 +5,14 @@ const { getAssessment } = require("../controllers/assessment")
 const platformSchedule = require("../connection/platformSchedule")
 const test = require("../models/test")
 const {getSingleCandidate} = require("../controllers/candidate")
+const { isMongoId } = require("validator")
 
 const test_validator = [
     body("assessment").isMongoId().notEmpty(),
     body("candidate").isMongoId().notEmpty()
 ]
 const test_result_update_validator = [
-    body("uniqueID").notEmpty(),
+    body("assessment_id").isMongoId().notEmpty(),
     body("result").notEmpty().isObject()
 ]
 function getdateTimeNow() {
@@ -37,7 +38,7 @@ const create = async (req, res) => {
         }
         else {
             const { assessment , candidate} = req.body;
-
+            const newtest = new test({assessment ,candidate})
             const assessment_object = await getAssessment(assessment);
             if (assessment_object === null ){
                 return res.status(404).json({status : "error" , message : "assessement not found"})
@@ -48,13 +49,15 @@ const create = async (req, res) => {
             }
             const platform = await getPlatform(assessment_object.platform);
             // console.log(assessment_object.platform)
-            const data = await platformSchedule(platform.baseUrl, assessment_object.test_id, platform.authKey , candidate_object.email ,candidate_object.firstName , candidate_object.lastName ,getdateTimeNow())
+            const data = await platformSchedule(platform.baseUrl, assessment_object.test_id, platform.authKey , candidate_object.email ,candidate_object.firstName , candidate_object.lastName ,getdateTimeNow(),newtest._id)
             if (data.status === 'error') {
                 return res.status(data.code).json(data);
             }
             // createing tests 
             const uniqueID = data.data.uniqueID;
-            const newtest = new test({ uniqueID, assessment ,candidate})
+            
+            newtest.uniqueID = uniqueID ;
+            console.log("test"+newtest._id)
             const savedtest = await newtest.save();
             return res.status(200).json({ status: "success", data: savedtest, autoLoginURL: data.data.autoLoginURL })
         }
@@ -100,12 +103,14 @@ const updateResult = async (req, res) => {
     if (!errors.isEmpty()) {
         return res.status(403).json({ status: "error", error: errors.array() })
     }
-    const { uniqueID, result } = req.body;
-    const existing_test = await test.findOne({ uniqueID });
+    const { assessment_id, result } = req.body;
+    const _id = assessment_id ;
+    const existing_test = await test.findOne({ _id });
     if (!existing_test) {
         return res.status(404).json({ status: "error", error: "Test with this not exist" })
     }
     existing_test.result = result;
+    existing_test.status=2;
     const updated_data = await existing_test.save();
     return res.status(200).json({ status: "success" })
 

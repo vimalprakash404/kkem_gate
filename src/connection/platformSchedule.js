@@ -1,5 +1,5 @@
 const post = require("./methods/post")
-async function platformschedule(baseurl, platform_test_id, key ,email , firstName , lastName ,startTestTime) {
+async function platformschedule(baseurl, platform_test_id, key ,email , firstName , lastName ,startTestTime, assessement_details_id ) {
     console.log(startTestTime)
     const data =new Object ({
         "testID": `${platform_test_id}`,
@@ -10,12 +10,7 @@ async function platformschedule(baseurl, platform_test_id, key ,email , firstNam
         "emailID": `${email}`,
         "firstName": `${firstName}`,
         "lastName": `${lastName}`,
-        "customInfo1": "CandID1234",
-        "customInfo2": "JobReqID1234",
-        "customInfo3": "custom Info 3",
-        "customInfo4": "custom Info 4",
-        "invigilatorUsername":"Teasd",
-        "evaluatorUsername":"Teasd",
+        "customInfo1": `${assessement_details_id}`,
         "testEndReturnURL": "https://www.example.com"
         },
         "actionFlag": {

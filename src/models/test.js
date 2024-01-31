@@ -3,7 +3,7 @@ const Schema = mongoose .Schema;
 const testSchema =new Schema( {
     uniqueID : {
         type : Number ,
-        required : true ,
+        required : false ,
         unique : true 
     },
     result :
@@ -11,7 +11,7 @@ const testSchema =new Schema( {
         type : Object,
         require : true 
     },
-    "assessment":{ type: Schema.Types.ObjectId, ref: 'Assessment', required: true },
+    "assessment":{ type: Schema.Types.ObjectId, ref: 'Master-Assessment', required: true },
     "candidate": { type: Schema.Types.ObjectId, ref: 'Candidate', required: true } ,
     start_date_time: {
         type: Date,
@@ -20,10 +20,18 @@ const testSchema =new Schema( {
       end_date_time : 
       {
         type : Date 
+      },
+      status : {
+        type : Number ,
+        default : 0 
       }
+      /* 
+      status 0  ->  assessement started 
+      status 1 -> assesssement completed 
+       */
 });
 
-const Test = mongoose.model("Test" , testSchema);
+const Test = mongoose.model("Assessment-Details" , testSchema);
 
 
 module.exports = Test ;

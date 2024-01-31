@@ -23,6 +23,10 @@ const candidateSchema = new Schema({
         unique : true ,
         type : Number ,
         require : true 
+    },
+    district :{
+        require : true , 
+        type : String 
     }
 });
 

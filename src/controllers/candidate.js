@@ -2,12 +2,32 @@ const jwt = require("jsonwebtoken")
 const privateKey = require("../service/getPrivateKey");
 const {body , validationResult}  = require("express-validator")
 const Candidate = require("../models/candidate")
+
+
+const   district = [
+            "Alappuzha",
+            "Ernakulam",
+            "Idukki",
+            "Kannur",
+            "Kasaragod",
+            "Kollam",
+            "Kottayam",
+            "Kozhikode",
+            "Malappuram",
+            "Palakkad",
+            "Pathanamthitta",
+            "Thiruvananthapuram",
+            "Thrissur",
+            "Wayanad"
+]  
+
 const validate_data = [
   body("firstName").isString().notEmpty() ,
   body("lastName").isString().notEmpty() ,
   body("dwmsID").isString().notEmpty(),
   body("email").isEmail().notEmpty(),
-  body("mobile").isMobilePhone()
+  body("mobile").isMobilePhone(),
+  body("district").notEmpty().withMessage("district field is required").isIn(district).withMessage('Invalid distrcit accept only '+district)
 ]
 const login =(req, res)=>{
     const {username ,password} = req.body ;
