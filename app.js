@@ -27,6 +27,6 @@ app.use(function(req, res, next) {
 });
 app.use("/platform",plaform);
 app.use("/assessment", assessment);
-app.use("/test",test);
+app.use("",test);
 app.use("/candidate",candidate)
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
