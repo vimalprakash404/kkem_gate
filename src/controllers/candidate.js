@@ -60,7 +60,7 @@ const candidate =async(req ,res) => {
       const newCandidate = new Candidate(req.body);
       newCandidate.save();
       const user = newCandidate ;
-      const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '1h' });
+      const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '72h' });
       newCandidate._id = undefined ;
 
       return res.status(200).json({newuser : 1 , data : newCandidate , "status" : "success" , autologin : `http://${req.headers.host}?token=${token}`})

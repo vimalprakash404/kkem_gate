@@ -11,7 +11,7 @@ async function platformschedule(baseurl, platform_test_id, key ,email , firstNam
         "firstName": `${firstName}`,
         "lastName": `${lastName}`,
         "customInfo1": `${assessement_details_id}`,
-        "testEndReturnURL": "https://www.example.com"
+        "testEndReturnURL": "https://ictkerala.org/"
         },
         "actionFlag": {
         "sendEmail": "Y"
