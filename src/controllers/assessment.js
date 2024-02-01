@@ -7,7 +7,7 @@ const isAssessmentNameUnqiue =  async (test_name) => {
     const existingAssessment =  await Assessment.findOne({test_name})
     return !existingAssessment;
 }
-
+// validator for creating assessment 
 assessment_validator =  [
     body("test_id").isNumeric().notEmpty(),
     body("test_name").isString().notEmpty().custom(
@@ -23,7 +23,7 @@ assessment_validator =  [
 
 
 
-
+// createing master assessment 
 const create = async(req, res) => { 
     try {
         const errors = validationResult(req);
@@ -47,14 +47,14 @@ const create = async(req, res) => {
         return res.status(400).json({error:`server err ${err.message}`})
     }
 }
-
+// validator for edit  assessemnet 
 assessment_edit_validator =  [
     body("test_id").isNumeric().notEmpty(),
     body("test_name").isString().notEmpty(),
     body("test_description").isString().notEmpty(),
     body("platform").isMongoId().notEmpty()
 ]
-
+// edit assessment 
 const edit = async (req, res) => { 
     try {
         if(!errors.isEmpty()){
@@ -63,6 +63,7 @@ const edit = async (req, res) => {
         const assessment_id = req.params.assessment_id;
         const {test_id , test_name , test_description , platform} = req.body;
         const existingAssessment = await Assessment.findById(assessment_id);
+        // checking exixting assessment 
         if (!existingAssessment){
             return res.status(404).json({"message" :  "Assessment not found"})
         }
@@ -84,7 +85,7 @@ const edit = async (req, res) => {
     }
 }
 
-
+// removeing  assessment 
 const remove = async (req , res) => {
     try { 
         const assessment_id = req.params.assessment_id;

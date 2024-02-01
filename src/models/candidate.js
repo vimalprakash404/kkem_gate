@@ -27,6 +27,11 @@ const candidateSchema = new Schema({
     district :{
         require : true , 
         type : String 
+    },
+    created_date_time :{
+        require : true ,
+        type : Date ,
+        default : Date.now 
     }
 });
 

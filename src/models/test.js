@@ -26,9 +26,9 @@ const testSchema =new Schema( {
         default : 0 
       }
       /* 
-      status 0  ->  assessement started 
-      status 1 -> assesssement completed 
-       */
+      status 0  ->  assessment started 
+      status 1 -> assessment completed 
+      */
 });
 
 const Test = mongoose.model("Assessment-Details" , testSchema);

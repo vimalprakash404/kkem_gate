@@ -3,7 +3,7 @@ const privateKey = require("../service/getPrivateKey");
 const {body , validationResult}  = require("express-validator")
 const Candidate = require("../models/candidate")
 
-
+// district list
 const   district = [
             "Alappuzha",
             "Ernakulam",
@@ -21,6 +21,7 @@ const   district = [
             "Wayanad"
 ]  
 
+// district validator
 const validate_data = [
   body("firstName").isString().notEmpty() ,
   body("lastName").isString().notEmpty() ,
@@ -29,6 +30,9 @@ const validate_data = [
   body("mobile").isMobilePhone(),
   body("district").notEmpty().withMessage("district field is required").isIn(district).withMessage('Invalid distrcit accept only '+district)
 ]
+
+
+//
 const login =(req, res)=>{
     const {username ,password} = req.body ;
     if (username === 'demo' && password === 'password') {
@@ -73,9 +77,13 @@ const candidate =async(req ,res) => {
  
 }
 
+
+//get all candidate list 
 const get_candidate =(req ,res)=>{
   return res.status(200).json({data:req.user.user})
 }
+
+// get single candidate
 const getSingleCandidate =async(objectId) => {
   return await Candidate.findOne({"_id":objectId})
 }

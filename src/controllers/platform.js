@@ -53,9 +53,9 @@ const edit =  async (req, res) =>  {
         if (!errors.isEmpty()){
             return res.status(403).json({errors :  errors.message()})
         }
-        const  plaform_id = req.params.plaform_id;
+        const  platform_id = req.params.platform_id;
         const {name, baseUrl , authKey} = req.body;
-        const existingPlatform = await platform.findById(plaform_id);
+        const existingPlatform = await platform.findById(platform_id);
 
         if(!existingPlatform) {
             return res.status(404).json({error :  "Platform not found"})
@@ -83,7 +83,7 @@ const edit =  async (req, res) =>  {
 const remove = async (req, res) => {
     try {
         
-        const platformId = req.params.plaform_id;
+        const platformId = req.params.platform_id;
 
         // Check if the platform with the given ID exists
         const existingPlatform = await platform.findById(platformId);
@@ -102,8 +102,8 @@ const remove = async (req, res) => {
 }
 
 
-const getPlatform= async (plaform_id) => {
-    const existingPlatform = await platform.findOne({"_id": plaform_id});
+const getPlatform= async (platform_id) => {
+    const existingPlatform = await platform.findOne({"_id": platform_id});
     return existingPlatform ;
 }
 

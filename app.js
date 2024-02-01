@@ -4,7 +4,7 @@ const port = 3005
 const bodyParser = require("body-parser");
 require("./db/connection")
 const cors = require('cors')
-const plaform = require("./src/routes/platform");
+const platform = require("./src/routes/platform");
 const assessment = require("./src/routes/assessment");
 const candidate = require("./src/routes/candidate")
 const test = require("./src/routes/test");
@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-app.use("/platform",plaform);
+app.use("/platform",platform);
 app.use("/assessment", assessment);
 app.use("",test);
 app.use("/candidate",candidate)
