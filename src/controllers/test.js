@@ -117,4 +117,29 @@ const updateResult = async (req, res) => {
 
 }
 
-module.exports = { updateResult, create, test_validator, test_result_update_validator , getAllResult };
+const new_update_validator = [
+    body("result").isObject().notEmpty(),
+    body("result.candidateId").isString()
+]
+ 
+const newUpdateResult = async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(403).json({ status: "error", error: errors.array() })
+    }
+    const assessment_id = req.body.result.candidateId;
+    const result = req.body.result.overallScore;
+    const _id = assessment_id ;
+    const existing_test = await test.findOne({ _id });
+    if (!existing_test) {
+        return res.status(404).json({ status: "error", error: "Test with this not exist" })
+    }
+    existing_test.result = result;
+    existing_test.status=2;
+    existing_test.end_date_time =  Date.now();
+    const updated_data = await existing_test.save();
+    return res.status(200).json({ status: "success" })
+
+}
+
+module.exports = { updateResult, create, test_validator, test_result_update_validator , getAllResult ,newUpdateResult, new_update_validator};
