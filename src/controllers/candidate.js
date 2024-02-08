@@ -55,7 +55,6 @@ const candidate =async(req ,res) => {
       { email: email },
       {mobile :mobile}
     ]})
-    console.log(req)
     if(!existing_candidate){
       const newCandidate = new Candidate(req.body);
       newCandidate.save();
@@ -77,10 +76,40 @@ const candidate =async(req ,res) => {
  
 }
 
+function searchElement(options) {
+  const jsonData = require("./data/data.json");
+  return jsonData.find(item => {
+      for (let key in options) {
+          if (item[key] !== options[key]) {
+              return false;
+          }
+      }
+      return true;
+  });
+}
+function searchDistrict(options) {
+  const jsonData = require("./data/dist_name.json");
+  return jsonData.find(item => {
+      for (let key in options) {
+          if (item[key] !== options[key]) {
+              return false;
+          }
+      }
+      return true;
+  });
+}
+
 
 //get all candidate list 
 const get_candidate =(req ,res)=>{
-  return res.status(200).json({data:req.user.user})
+  const resData =req.user.user
+  
+  const data=searchElement({lb_id:Number(resData.lb_id)})
+  console.log(data);  
+  const district = searchDistrict({id:data.dist_id})
+  resData.district = district.name;
+  resData.lb_name = data.lb_name;
+  return res.status(200).json({data:resData})
 }
 
 // get single candidate

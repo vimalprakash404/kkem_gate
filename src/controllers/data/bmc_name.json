@@ -1,0 +1,1010 @@
+[
+  {
+    "id": 0,
+    "name": "Athiyannoor Block"
+  },
+  {
+    "id": 1,
+    "name": "Chirayinkeezhu Block"
+  },
+  {
+    "id": 2,
+    "name": "Kilimanoor Block"
+  },
+  {
+    "id": 3,
+    "name": "Nedumangad Block"
+  },
+  {
+    "id": 4,
+    "name": "Nemam Block"
+  },
+  {
+    "id": 5,
+    "name": "Parassala Block"
+  },
+  {
+    "id": 6,
+    "name": "Perumkadavila Block"
+  },
+  {
+    "id": 7,
+    "name": "Pothencode Block"
+  },
+  {
+    "id": 8,
+    "name": "Vamanapuram Block"
+  },
+  {
+    "id": 9,
+    "name": "Varkala Block"
+  },
+  {
+    "id": 10,
+    "name": "Vellanad Block"
+  },
+  {
+    "id": 11,
+    "name": "Attingal Muncipality"
+  },
+  {
+    "id": 12,
+    "name": "Nedumangad Muncipality"
+  },
+  {
+    "id": 13,
+    "name": "Neyyattinkara Municipality"
+  },
+  {
+    "id": 14,
+    "name": "Varkala Muncipality"
+  },
+  {
+    "id": 15,
+    "name": "Thiruvananthapuram Corporation"
+  },
+  {
+    "id": 16,
+    "name": "Anchal Block"
+  },
+  {
+    "id": 17,
+    "name": "Chadayamangalam Block"
+  },
+  {
+    "id": 18,
+    "name": "Chavara Block"
+  },
+  {
+    "id": 19,
+    "name": "Chittumala Block"
+  },
+  {
+    "id": 20,
+    "name": "Ithikkara Block"
+  },
+  {
+    "id": 21,
+    "name": "Kottarakkara Block"
+  },
+  {
+    "id": 22,
+    "name": "Mughathala Block"
+  },
+  {
+    "id": 23,
+    "name": "Ochira Block"
+  },
+  {
+    "id": 24,
+    "name": "Pathanapuram Block"
+  },
+  {
+    "id": 25,
+    "name": "Sasthamcotta Block"
+  },
+  {
+    "id": 26,
+    "name": "Vettikkavala Block"
+  },
+  {
+    "id": 27,
+    "name": "Karunagappally (M)"
+  },
+  {
+    "id": 28,
+    "name": "Kottarakkara (M)"
+  },
+  {
+    "id": 29,
+    "name": "Paravoor  (M)"
+  },
+  {
+    "id": 30,
+    "name": "Punalur (M)"
+  },
+  {
+    "id": 31,
+    "name": "Kollam (Corp)"
+  },
+  {
+    "id": 32,
+    "name": "Elanthoor Block"
+  },
+  {
+    "id": 33,
+    "name": "Elanthur Block"
+  },
+  {
+    "id": 34,
+    "name": "Koipram Block"
+  },
+  {
+    "id": 35,
+    "name": "Konni Block"
+  },
+  {
+    "id": 36,
+    "name": "Mallappally Block"
+  },
+  {
+    "id": 37,
+    "name": "Pandalam Block"
+  },
+  {
+    "id": 38,
+    "name": "Parakkode Block"
+  },
+  {
+    "id": 39,
+    "name": "Pulikkezhu Block"
+  },
+  {
+    "id": 40,
+    "name": "Ranni Block"
+  },
+  {
+    "id": 41,
+    "name": "Adoor (Municipality)"
+  },
+  {
+    "id": 42,
+    "name": "Pandalam(Municipality)"
+  },
+  {
+    "id": 43,
+    "name": "Pathanamthitta Municipality"
+  },
+  {
+    "id": 44,
+    "name": "Thiruvalla Municipality"
+  },
+  {
+    "id": 45,
+    "name": "Ambalapuzha Block"
+  },
+  {
+    "id": 46,
+    "name": "Aryad Block"
+  },
+  {
+    "id": 47,
+    "name": "Bharanikkavu Block"
+  },
+  {
+    "id": 48,
+    "name": "Chambakulam Block"
+  },
+  {
+    "id": 49,
+    "name": "Chengannoor  Block"
+  },
+  {
+    "id": 50,
+    "name": "Haripad Block"
+  },
+  {
+    "id": 51,
+    "name": "Kanjikuzhi Block"
+  },
+  {
+    "id": 52,
+    "name": "Mavelikkara Block"
+  },
+  {
+    "id": 53,
+    "name": "Muthukulam Block"
+  },
+  {
+    "id": 54,
+    "name": "Pattanakkad Block"
+  },
+  {
+    "id": 55,
+    "name": "Thykkattusseri Block"
+  },
+  {
+    "id": 56,
+    "name": "Veliyanad Block"
+  },
+  {
+    "id": 57,
+    "name": "Alappuzha Municipality"
+  },
+  {
+    "id": 58,
+    "name": "Chengannoor  Municipality"
+  },
+  {
+    "id": 59,
+    "name": "Cherthala Municipality"
+  },
+  {
+    "id": 60,
+    "name": "Haripad Muncipality"
+  },
+  {
+    "id": 61,
+    "name": "Kayamkulam Municipality"
+  },
+  {
+    "id": 62,
+    "name": "Mavelikara Municipality"
+  },
+  {
+    "id": 63,
+    "name": "Erattupetta Block"
+  },
+  {
+    "id": 64,
+    "name": "Ettumanoor Block"
+  },
+  {
+    "id": 65,
+    "name": "Kaduthuruthy  Block"
+  },
+  {
+    "id": 66,
+    "name": "Kanjirappally Block"
+  },
+  {
+    "id": 67,
+    "name": "Lalam Block"
+  },
+  {
+    "id": 68,
+    "name": "Madappally  Block"
+  },
+  {
+    "id": 69,
+    "name": "Pallom Block"
+  },
+  {
+    "id": 70,
+    "name": "Pamapdy Block"
+  },
+  {
+    "id": 71,
+    "name": "Uzhavoor Block"
+  },
+  {
+    "id": 72,
+    "name": "Vaikom Block"
+  },
+  {
+    "id": 73,
+    "name": "Vazhoor Block"
+  },
+  {
+    "id": 74,
+    "name": "Changanacherry(M)"
+  },
+  {
+    "id": 75,
+    "name": "Erattupetta(M)"
+  },
+  {
+    "id": 76,
+    "name": "Ettumanoor(M)"
+  },
+  {
+    "id": 77,
+    "name": "Kottayam(M)"
+  },
+  {
+    "id": 78,
+    "name": "Pala(M)"
+  },
+  {
+    "id": 79,
+    "name": "Vaikom(M)"
+  },
+  {
+    "id": 80,
+    "name": "Adimaly Block"
+  },
+  {
+    "id": 81,
+    "name": "Azhutha Block"
+  },
+  {
+    "id": 82,
+    "name": "Devikulam Block"
+  },
+  {
+    "id": 83,
+    "name": "Elamdesam Block"
+  },
+  {
+    "id": 84,
+    "name": "Idukki Block"
+  },
+  {
+    "id": 85,
+    "name": "Kattappana Block"
+  },
+  {
+    "id": 86,
+    "name": "Nedumkandam Block"
+  },
+  {
+    "id": 87,
+    "name": "Thodupuzha Block"
+  },
+  {
+    "id": 88,
+    "name": "Kattappana( M)"
+  },
+  {
+    "id": 89,
+    "name": "Thodupuzha(M)"
+  },
+  {
+    "id": 90,
+    "name": "Alangad Block"
+  },
+  {
+    "id": 91,
+    "name": "Angamali Block"
+  },
+  {
+    "id": 92,
+    "name": "Edapilly Block"
+  },
+  {
+    "id": 93,
+    "name": "Koovappady Block"
+  },
+  {
+    "id": 94,
+    "name": "Kothamangalam  Block"
+  },
+  {
+    "id": 95,
+    "name": "Mulanthuruthy Block"
+  },
+  {
+    "id": 96,
+    "name": "Muvattupuzha Block"
+  },
+  {
+    "id": 97,
+    "name": "Palluruthy Block"
+  },
+  {
+    "id": 98,
+    "name": "Pambakkuda Block"
+  },
+  {
+    "id": 99,
+    "name": "Parakkadavu Block"
+  },
+  {
+    "id": 100,
+    "name": "Paravur Block"
+  },
+  {
+    "id": 101,
+    "name": "Vadavucode Block"
+  },
+  {
+    "id": 102,
+    "name": "Vazhakkulam Block"
+  },
+  {
+    "id": 103,
+    "name": "Vypin Block"
+  },
+  {
+    "id": 104,
+    "name": "Aluva (M)"
+  },
+  {
+    "id": 105,
+    "name": "Angamaly(M)"
+  },
+  {
+    "id": 106,
+    "name": "Eloor (M)"
+  },
+  {
+    "id": 107,
+    "name": "Kalamasseri (M)"
+  },
+  {
+    "id": 108,
+    "name": "Koothattukulam(M)"
+  },
+  {
+    "id": 109,
+    "name": "Kothamangalam(M)"
+  },
+  {
+    "id": 110,
+    "name": "Maradu(M)"
+  },
+  {
+    "id": 111,
+    "name": "Moovattupuzha(M)"
+  },
+  {
+    "id": 112,
+    "name": "Parur (M)"
+  },
+  {
+    "id": 113,
+    "name": "Perumbavoor(M)"
+  },
+  {
+    "id": 114,
+    "name": "Piravom(M)"
+  },
+  {
+    "id": 115,
+    "name": "Thrikkakara (M)"
+  },
+  {
+    "id": 116,
+    "name": "Thrippununithura(M)"
+  },
+  {
+    "id": 117,
+    "name": "Kochi Corp"
+  },
+  {
+    "id": 118,
+    "name": "Anthikad Block"
+  },
+  {
+    "id": 119,
+    "name": "Chalakudy Block"
+  },
+  {
+    "id": 120,
+    "name": "Chavakkad Block"
+  },
+  {
+    "id": 121,
+    "name": "Cherpu Block"
+  },
+  {
+    "id": 122,
+    "name": "Chowannur Block"
+  },
+  {
+    "id": 123,
+    "name": "Irinjalakuda Block"
+  },
+  {
+    "id": 124,
+    "name": "Kodakara Block"
+  },
+  {
+    "id": 125,
+    "name": "Mala  Block"
+  },
+  {
+    "id": 126,
+    "name": "Mala Block"
+  },
+  {
+    "id": 127,
+    "name": "Mathilakam Block"
+  },
+  {
+    "id": 128,
+    "name": "Mullassery Block"
+  },
+  {
+    "id": 129,
+    "name": "Ollukkara Block"
+  },
+  {
+    "id": 130,
+    "name": "Pazhayannur Block"
+  },
+  {
+    "id": 131,
+    "name": "Puzhakal Block"
+  },
+  {
+    "id": 132,
+    "name": "Thalikulam Block"
+  },
+  {
+    "id": 133,
+    "name": "Vellangallur Block"
+  },
+  {
+    "id": 134,
+    "name": "Wadakkanchery Block"
+  },
+  {
+    "id": 135,
+    "name": "Chalakudy Municipality"
+  },
+  {
+    "id": 136,
+    "name": "Chavakkad (M)"
+  },
+  {
+    "id": 137,
+    "name": "Guruvayur (M )"
+  },
+  {
+    "id": 138,
+    "name": "Irinjalakuda Municipality"
+  },
+  {
+    "id": 139,
+    "name": "Kodungallur  Municipality"
+  },
+  {
+    "id": 140,
+    "name": "Kunnamkulam(M)"
+  },
+  {
+    "id": 141,
+    "name": "Wadakkanchery (M)"
+  },
+  {
+    "id": 142,
+    "name": "Thrissur Corporation"
+  },
+  {
+    "id": 143,
+    "name": "Alathur Block"
+  },
+  {
+    "id": 144,
+    "name": "Attappady Block"
+  },
+  {
+    "id": 145,
+    "name": "Chittur Block"
+  },
+  {
+    "id": 146,
+    "name": "Kollamkode Block"
+  },
+  {
+    "id": 147,
+    "name": "Kollengode  Block"
+  },
+  {
+    "id": 148,
+    "name": "Kuzhalmannam  Block"
+  },
+  {
+    "id": 149,
+    "name": "Malampuzha Block"
+  },
+  {
+    "id": 150,
+    "name": "Mannarkkad Block"
+  },
+  {
+    "id": 151,
+    "name": "Nemmara Block"
+  },
+  {
+    "id": 152,
+    "name": "Nenmara Block"
+  },
+  {
+    "id": 153,
+    "name": "Ottappalam Block"
+  },
+  {
+    "id": 154,
+    "name": "Palakkad  Block"
+  },
+  {
+    "id": 155,
+    "name": "Pattambi Block"
+  },
+  {
+    "id": 156,
+    "name": "Sreekrishnapuram Block"
+  },
+  {
+    "id": 157,
+    "name": "Thrithala Block"
+  },
+  {
+    "id": 158,
+    "name": "Cherpulassery Municipality"
+  },
+  {
+    "id": 159,
+    "name": "Chittur Tathamangalam Municipality"
+  },
+  {
+    "id": 160,
+    "name": "Mannarkkad Municipality"
+  },
+  {
+    "id": 161,
+    "name": "Ottappalam Municipality"
+  },
+  {
+    "id": 162,
+    "name": "Palakkad Municippality"
+  },
+  {
+    "id": 163,
+    "name": "Pattambi Municipality"
+  },
+  {
+    "id": 164,
+    "name": "Shornur Municipality"
+  },
+  {
+    "id": 165,
+    "name": "AREACODE Block"
+  },
+  {
+    "id": 166,
+    "name": "KALIKAVU Block"
+  },
+  {
+    "id": 167,
+    "name": "KONDOTTY Block"
+  },
+  {
+    "id": 168,
+    "name": "Kuttippuram Block"
+  },
+  {
+    "id": 169,
+    "name": "MALAPPURAM Block"
+  },
+  {
+    "id": 170,
+    "name": "Mankada Block"
+  },
+  {
+    "id": 171,
+    "name": "NILAMBUR Block"
+  },
+  {
+    "id": 172,
+    "name": "Perinthalmanna Block"
+  },
+  {
+    "id": 173,
+    "name": "PERUMPADAPPU Block"
+  },
+  {
+    "id": 174,
+    "name": "PONNANI Block"
+  },
+  {
+    "id": 175,
+    "name": "Tanur Block"
+  },
+  {
+    "id": 176,
+    "name": "Tirur Block"
+  },
+  {
+    "id": 177,
+    "name": "Tirurangadi Block"
+  },
+  {
+    "id": 178,
+    "name": "Vengara Block"
+  },
+  {
+    "id": 179,
+    "name": "VENGARA Block"
+  },
+  {
+    "id": 180,
+    "name": "WANDOOR Block"
+  },
+  {
+    "id": 181,
+    "name": "KONDOTTY(M)"
+  },
+  {
+    "id": 182,
+    "name": "KOTTAKKAL(M)"
+  },
+  {
+    "id": 183,
+    "name": "MALAPPURAM(M)"
+  },
+  {
+    "id": 184,
+    "name": "MANJERY(M)"
+  },
+  {
+    "id": 185,
+    "name": "NILAMBUR(M)"
+  },
+  {
+    "id": 186,
+    "name": "Parappanagadi(M)"
+  },
+  {
+    "id": 187,
+    "name": "Perinthalmanna (M)"
+  },
+  {
+    "id": 188,
+    "name": "PONNANI (M)"
+  },
+  {
+    "id": 189,
+    "name": "Tanur(M)"
+  },
+  {
+    "id": 190,
+    "name": "Tirur(M)"
+  },
+  {
+    "id": 191,
+    "name": "Tirurangadi(M)"
+  },
+  {
+    "id": 192,
+    "name": "Valanchery(M)"
+  },
+  {
+    "id": 193,
+    "name": "Balussery Block"
+  },
+  {
+    "id": 194,
+    "name": "Chelannur Block"
+  },
+  {
+    "id": 195,
+    "name": "Koduvally Block"
+  },
+  {
+    "id": 196,
+    "name": "Kozhikode Block"
+  },
+  {
+    "id": 197,
+    "name": "Kunnamangalam Block"
+  },
+  {
+    "id": 198,
+    "name": "Kunnummal Block"
+  },
+  {
+    "id": 199,
+    "name": "Melady Block"
+  },
+  {
+    "id": 200,
+    "name": "Panthalayani Block"
+  },
+  {
+    "id": 201,
+    "name": "Perambra Block"
+  },
+  {
+    "id": 202,
+    "name": "Thodannur Block"
+  },
+  {
+    "id": 203,
+    "name": "Thuneri Block"
+  },
+  {
+    "id": 204,
+    "name": "Vadakara Block"
+  },
+  {
+    "id": 205,
+    "name": "Feroke Municipality"
+  },
+  {
+    "id": 206,
+    "name": "Koduvally Muncipality"
+  },
+  {
+    "id": 207,
+    "name": "Koyilandy Municipality"
+  },
+  {
+    "id": 208,
+    "name": "Mukkam Municipality"
+  },
+  {
+    "id": 209,
+    "name": "Payyoli Municipality"
+  },
+  {
+    "id": 210,
+    "name": "Ramanattukara Municipality"
+  },
+  {
+    "id": 211,
+    "name": "Vadakara Municipality"
+  },
+  {
+    "id": 212,
+    "name": "Kozhikode Corporation"
+  },
+  {
+    "id": 213,
+    "name": "Kalpetta Block Block"
+  },
+  {
+    "id": 214,
+    "name": "Kalpetta Block"
+  },
+  {
+    "id": 215,
+    "name": "Mananthavady Block"
+  },
+  {
+    "id": 216,
+    "name": "Panamaram Block"
+  },
+  {
+    "id": 217,
+    "name": "Sulthan Bathery Block"
+  },
+  {
+    "id": 218,
+    "name": "Kalpetta Municipality"
+  },
+  {
+    "id": 219,
+    "name": "Mananthavady Municipality"
+  },
+  {
+    "id": 220,
+    "name": "Sulthan Bathery Municipality"
+  },
+  {
+    "id": 221,
+    "name": "Kannur Block"
+  },
+  {
+    "id": 222,
+    "name": "Edakkad Block"
+  },
+  {
+    "id": 223,
+    "name": "Kalliassery Block"
+  },
+  {
+    "id": 224,
+    "name": "Taliparamba Block"
+  },
+  {
+    "id": 225,
+    "name": "Payyannur Block"
+  },
+  {
+    "id": 226,
+    "name": "Irikkur Block"
+  },
+  {
+    "id": 227,
+    "name": "Thalassery Block"
+  },
+  {
+    "id": 228,
+    "name": "Kuthuparamba Block"
+  },
+  {
+    "id": 229,
+    "name": "Peravoor Block"
+  },
+  {
+    "id": 230,
+    "name": "Iritty Block"
+  },
+  {
+    "id": 231,
+    "name": "Panoor Block"
+  },
+  {
+    "id": 232,
+    "name": "Kuthuparamba Municipality"
+  },
+  {
+    "id": 233,
+    "name": "Thalassery  Municipality"
+  },
+  {
+    "id": 234,
+    "name": "Mattannur Municipality"
+  },
+  {
+    "id": 235,
+    "name": "Panoor Municipality"
+  },
+  {
+    "id": 236,
+    "name": "Iritty Municipality"
+  },
+  {
+    "id": 237,
+    "name": "Taliparamba Municipality"
+  },
+  {
+    "id": 238,
+    "name": "Payyannur Municipality"
+  },
+  {
+    "id": 239,
+    "name": "Anthoor Municipality"
+  },
+  {
+    "id": 240,
+    "name": "Sreekandapuram Municipality"
+  },
+  {
+    "id": 241,
+    "name": "Kannur Corporation"
+  },
+  {
+    "id": 242,
+    "name": "KANHANGAD Block"
+  },
+  {
+    "id": 243,
+    "name": "KARADKA Block"
+  },
+  {
+    "id": 244,
+    "name": "KASARAGOD Block"
+  },
+  {
+    "id": 245,
+    "name": "MANJESHWAR Block"
+  },
+  {
+    "id": 246,
+    "name": "NILESWAR Block"
+  },
+  {
+    "id": 247,
+    "name": "PARAPPA Block"
+  },
+  {
+    "id": 248,
+    "name": "KANHANGAD MUNICIPALITY"
+  },
+  {
+    "id": 249,
+    "name": "KASARAGOD MUNCIPALITY"
+  },
+  {
+    "id": 250,
+    "name": "NILESWARAM  MUNICIPALITY"
+  },
+  {
+    "id": 251,
+    "name": "NULL"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "lb_type_id": 3,
+    "lb_type_name": "Muncipality",
+    "lb_type_abbr": "M",
+    "active": "Y"
+  },
+  {
+    "lb_type_id": 4,
+    "lb_type_name": "Corporation",
+    "lb_type_abbr": "MC",
+    "active": "Y"
+  },
+  {
+    "lb_type_id": 5,
+    "lb_type_name": "Grama Panchayath",
+    "lb_type_abbr": "G",
+    "active": "Y"
+  },
+  {
+    "lb_type_id": 6,
+    "lb_type_name": "Others",
+    "lb_type_abbr": "Others",
+    "active": "Y"
+  }
+]

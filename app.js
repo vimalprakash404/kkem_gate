@@ -7,6 +7,9 @@ const cors = require('cors')
 const platform = require("./src/routes/platform");
 const assessment = require("./src/routes/assessment");
 const candidate = require("./src/routes/candidate")
+const user = require("./src/routes/user")
+const kkem = require("./src/routes/kkem")
+
 const test = require("./src/routes/test");
 const path = require('path');
 const https = require('https');
@@ -38,8 +41,9 @@ app.get('/', (req, res) => {
 app.use("/platform",platform);
 app.use("/assessment", assessment);
 app.use("",test);
-app.use("/candidate",candidate)
-
+app.use("/candidate",candidate);
+app.use("",user);
+app.use("/kkem",kkem)
 
 
 const credentials = { key: privateKey, cert: certificate };
