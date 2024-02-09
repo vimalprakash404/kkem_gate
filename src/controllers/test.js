@@ -5,8 +5,7 @@ const { getAssessment } = require("../controllers/assessment")
 const platformSchedule = require("../connection/platformSchedule")
 const test = require("../models/test")
 const { getSingleCandidate } = require("../controllers/candidate")
-const { isMongoId } = require("validator")
-
+const {isMongoId} = require('mongoose')
 const test_validator = [
     body("assessment").isMongoId().notEmpty(),
     body("candidate").isMongoId().notEmpty()
@@ -120,7 +119,14 @@ const new_update_validator = [
     body("result").isObject().notEmpty(),
     body("result.candidateId").isString()
 ]
-
+function isValidObjectId(str) {
+    // Check if the string is 24 characters long
+    if (typeof str === 'string' && str.length === 24) {
+        // Check if the string consists only of hexadecimal characters
+        return /^[0-9a-fA-F]{24}$/.test(str);
+    }
+    return false;
+}
 const newUpdateResult = async (req, res) => {
     try {
         const errors = validationResult(req);
@@ -128,11 +134,14 @@ const newUpdateResult = async (req, res) => {
             return res.status(403).json({ status: "error", error: errors.array() })
         }
         const assessment_id = req.body.result.candidateId;
-        const result = req.body.result.overallScore;
+        const result = req.body.result;
         const _id = assessment_id;
+        if(!isValidObjectId(_id)){
+            return res.status(404).json({ status: "error", error: "Test with this id not valid" })
+        }
         const existing_test = await test.findOne({ _id });
         if (!existing_test) {
-            return res.status(404).json({ status: "error", error: "Test with this not exist" })
+            return res.status(404).json({ status: "error", error: "Test with this id not exist" })
         }
         existing_test.result = result;
         existing_test.status = 2;
@@ -141,7 +150,7 @@ const newUpdateResult = async (req, res) => {
         return res.status(200).json({ status: "success" })
     }
     catch (error) {
-        return res.status(500).json({"status":"error",error})
+        return res.status(500).json({"status":"error",error:error})
     }
 
 }
