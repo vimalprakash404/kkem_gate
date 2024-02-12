@@ -147,7 +147,11 @@ const newUpdateResult = async (req, res) => {
         existing_test.status = 2;
         existing_test.end_date_time = Date.now();
         const updated_data = await existing_test.save();
-        return res.status(200).json({ status: "success" })
+        return res.status(200).json({
+            "status": "success",
+            "responseCode": 200,
+            "message": "Data Saved"
+            })
     }
     catch (error) {
         return res.status(500).json({"status":"error",error:error})
