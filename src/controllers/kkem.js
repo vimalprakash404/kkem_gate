@@ -134,7 +134,6 @@ const insertCandidate = async (req, res) => {
             if (!existing_candidate) {
                 req.body.lb_id = dataExist.lb_id;
                 const newCandidate = new Candidate(req.body);
-                newCandidate.lb_id=dataExist.lb_id;
                 newCandidate.save();
                 const user = newCandidate;
                 const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '72h' });
