@@ -135,7 +135,14 @@ const insertCandidate = async (req, res) => {
                 req.body.lb_id = dataExist.lb_id;
                 const newCandidate = new Candidate(req.body);
                 newCandidate.save();
-                const user = newCandidate;
+                const existing_candidate_user = await Candidate.findOne({
+                    $or: [
+                        { dwmsID: dwmsID },
+                        { email: email },
+                        { mobile: mobile }
+                    ]
+                })
+                const user = existing_candidate_user;
                 const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '72h' });
                 const resData = newCandidate.toObject() ;
                 delete resData["_id"]; 
