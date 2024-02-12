@@ -137,11 +137,12 @@ const insertCandidate = async (req, res) => {
                 newCandidate.save();
                 const user = newCandidate;
                 const resData = newCandidate.toObject() ;
+                const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '72h' });
                 delete resData["_id"]; 
                 resData["district"] = district_ob.name;
                 resData["lb_code"] = dataExist.lb_code;
                 resData["lb_name"] = dataExist.lb_name;
-                const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '72h' });
+                
                 newCandidate._id = undefined;
                 return res.status(200).json({ newuser: 1, data: resData, "status": "success", autologin: `http://${req.headers.host}?token=${token}` })
             }
