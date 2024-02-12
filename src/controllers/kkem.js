@@ -132,10 +132,12 @@ const insertCandidate = async (req, res) => {
             })
             const district_ob = searchDistrict({ id: dist_id });
             if (!existing_candidate) {
+                req.body.lb_id = dataExist.lb_id;
                 const newCandidate = new Candidate(req.body);
                 newCandidate.lb_id=dataExist.lb_id;
-                const user = newCandidate.save();
-                const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '48h' });
+                newCandidate.save();
+                const user = newCandidate;
+                const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '72h' });
                 const resData = newCandidate.toObject() ;
                 delete resData["_id"]; 
                 resData["district"] = district_ob.name;
