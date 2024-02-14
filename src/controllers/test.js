@@ -4,8 +4,12 @@ const { getPlatform } = require("../controllers/platform")
 const { getAssessment } = require("../controllers/assessment")
 const platformSchedule = require("../connection/platformSchedule")
 const test = require("../models/test")
+const candidateModel = require("../models/candidate")
 const { getSingleCandidate } = require("../controllers/candidate")
 const {isMongoId} = require('mongoose')
+const resultPushBack = require("../connection/resultPushBack")
+const pushBackLog = require("../models/pushBacklog")
+
 const test_validator = [
     body("assessment").isMongoId().notEmpty(),
     body("candidate").isMongoId().notEmpty()
@@ -115,6 +119,9 @@ const updateResult = async (req, res) => {
 
 }
 
+
+
+
 const new_update_validator = [
     body("result").isObject().notEmpty(),
     body("result.candidateId").isString()
@@ -127,6 +134,23 @@ function isValidObjectId(str) {
     }
     return false;
 }
+
+async function pushBackToKkem(assessment_id,result){
+    const assessmentDetails= await test.findOne({ _id : assessment_id});
+    const candidateObject = await candidateModel.findOne({_id : assessmentDetails.candidate});
+    console.log("Assessment Details",assessmentDetails);
+    console.log("Candidate Details",candidateObject);
+    const requestData = {"dwmsID" :  candidateObject.dwmsID , result }
+    const responseData = await resultPushBack("https://httpbin.org/post",{"key":"vimal"}, requestData);
+    
+    const pushLog=new pushBackLog({
+        requestBody : requestData,
+        response : responseData,
+        DateAndTime : Date.now()
+    });
+    await pushLog.save();
+}
+
 const newUpdateResult = async (req, res) => {
     try {
         const errors = validationResult(req);
@@ -147,6 +171,7 @@ const newUpdateResult = async (req, res) => {
         existing_test.status = 2;
         existing_test.end_date_time = Date.now();
         const updated_data = await existing_test.save();
+        await pushBackToKkem(assessment_id , result);
         return res.status(200).json({
             "status": "success",
             "responseCode": 200,
@@ -158,5 +183,7 @@ const newUpdateResult = async (req, res) => {
     }
 
 }
+
+
 
 module.exports = { updateResult, create, test_validator, test_result_update_validator, getAllResult, newUpdateResult, new_update_validator };
