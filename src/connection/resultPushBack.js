@@ -7,6 +7,7 @@ async function resultPushBack (url,header,data){
         const body  = data;
         return await axios.post(url, body ,{headers})
             .then(response => {
+              console.log(response.data)
               return response.data;
             })
             .catch(error =>{
