@@ -48,6 +48,7 @@ app.post('*', (req, res) => {
   const requestData = {
     url: req.url,
     body: req.body,
+    header : req.headers , 
     datetime: new Date().toLocaleString() // Get the current date and time
   };
 
