@@ -32,7 +32,7 @@ function isAuthenticatetedPlatform(req, res, next){
 
 function isAuthenticateted(req, res, next , key)
 {
-    const authorizationkey = req.headers["custom-api-key"];
+    const {authorizationkey} = req.headers;
     if (typeof authorizationkey !== "undefined") {
         let token = authorizationkey;
         
