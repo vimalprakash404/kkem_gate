@@ -102,7 +102,7 @@ function searchDistrict(options) {
 //get all candidate list 
 const get_candidate =(req ,res)=>{
   const resData =req.user.user
-  
+  console.log("resData",resData);
   const data=searchElement({lb_id:Number(resData.lb_id)})
   console.log(data);  
   const district = searchDistrict({id:data.dist_id})
