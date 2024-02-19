@@ -144,7 +144,7 @@ const insertCandidate = async (req, res) => {
                 })
                 const user = existing_candidate_user;
                 console.log("userCreated",user);
-                const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '48h' });
+                const token = jwt.sign({ user }, privateKey, {  expiresIn: '48h' });
                 const resData = newCandidate.toObject() ;
                 delete resData["_id"]; 
                 resData["district"] = district_ob.name;
@@ -156,7 +156,7 @@ const insertCandidate = async (req, res) => {
             }
             else {
                 const user = existing_candidate;
-                const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '48h' });
+                const token = jwt.sign({ user }, privateKey, {  expiresIn: '48h' });
                 existing_candidate["district"] = district_ob.name;
                 existing_candidate["lb_code"] = dataExist.lb_code;
                 existing_candidate["lb_name"] = dataExist.lb_name;
