@@ -57,8 +57,7 @@ const candidate =async(req ,res) => {
     ]})
     if(!existing_candidate){
       const newCandidate = new Candidate(req.body);
-      newCandidate.save();
-      const user = newCandidate ;
+      const user = await newCandidate.save(); ;
       const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '72h' });
       newCandidate._id = undefined ;
 
