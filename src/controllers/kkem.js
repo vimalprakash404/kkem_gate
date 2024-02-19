@@ -143,6 +143,7 @@ const insertCandidate = async (req, res) => {
                     ]
                 })
                 const user = existing_candidate_user;
+                console.log("userCreated",user);
                 const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '48h' });
                 const resData = newCandidate.toObject() ;
                 delete resData["_id"]; 
