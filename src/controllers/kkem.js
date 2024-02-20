@@ -172,7 +172,7 @@ const insertCandidate = async (req, res) => {
             if (!existing_candidate) {
                 req.body.lb_id = dataExist.lb_id;
                 const newCandidate = new Candidate(req.body);
-                newCandidate.save();
+               
                 const existing_candidate_user = await Candidate.findOne({
                     $or: [
                         { dwmsID: dwmsID },
@@ -180,7 +180,7 @@ const insertCandidate = async (req, res) => {
                         { mobile: mobile }
                     ]
                 })
-                const user = existing_candidate_user;
+                const user = await  newCandidate.save();
                 console.log("userCreated",newCandidate);
                 const token = jwt.sign({ user }, privateKey, { algorithm: 'RS256', expiresIn: '48h' });
                 const resData = newCandidate.toObject() ;
