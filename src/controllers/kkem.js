@@ -4,7 +4,9 @@ const { search } = require("../routes/kkem")
 const Candidate = require("../models/candidate")
 const jwt = require('jsonwebtoken')
 const privateKey = require("../service/getPrivateKey");
-
+const District = require("../models/localBody/district")
+const lbType = require("../models/localBody/localBodyType");
+const LocalBody =require("../models/localBody/localBody")
 const form_validator = [
     body("email").isEmail(),
     body("mobile").isMobilePhone(),
@@ -36,6 +38,15 @@ const get_dist_lists = (req, res) => {
     const data = require("./data/dist_name.json");
     return res.status(200).json({ data });
 }
+
+const getDistrictFromDb= async (req, res)=> {
+    const districts = await District.find({},'-_id');
+    return res.status(200).json({districts})
+}
+
+
+
+
 const get_bmc_list = (req, res) => {
     const data = require("./data/bmc_name.json");
     return res.status(200).json({ data });
@@ -45,6 +56,10 @@ const get_lb_type = (req, res) => {
     const data = require("./data/lb_type.json")
     return res.status(200).json({ data })
 }
+const getLbTypeFromDb =async (req, res) =>{
+    const data = await lbType.find({},"-_id");
+    return res.status(200).json([data]);
+}
 
 
 
@@ -53,6 +68,11 @@ const get_lb = (req, res) => {
     return res.status(200).json({ data })
 
 }
+const getLbFromDb =async  (req, res)=>  {
+    const data = await LocalBody.find({},"-_id");
+    return res.status(200).json([data]);
+}
+
 
 function searchElement(options) {
     const jsonData = require("./data/data.json");
@@ -65,6 +85,24 @@ function searchElement(options) {
         return true;
     });
 }
+
+async function searchElementFromDb(options){
+    const { dist_id, lb_type_id, lb_code } = options ;
+    const isDistrictExist = await District.findOne({id:dist_id});
+    if (isDistrictExist === null ){
+        return undefined ;
+    }
+    const  isLbTypeExist = await lbType.findOne({lb_type_id : lb_type_id})
+    if (isLbTypeExist === null){
+        return undefined ;
+    }
+    const isLocalBodyExist = await LocalBody.findOne({lb_code,lb_type_id, dist_id})
+    if(isLocalBodyExist === null){
+        return undefined 
+    }
+    return isLocalBodyExist;
+}
+
 function searchDistrict(options) {
     const jsonData = require("./data/dist_name.json");
     return jsonData.find(item => {
@@ -120,7 +158,7 @@ const insertCandidate = async (req, res) => {
             return res.status(403).json({ errors: errors.array(), "status": "error" })
         }
         const { dist_id, lb_type_id, lb_code, firstName, lastName, dwmsID, email, mobile } = req.body;
-        const dataExist = searchElement({ dist_id, lb_type_id, lb_code })
+        const dataExist =await searchElementFromDb({ dist_id, lb_type_id, lb_code })
         if (dataExist !== undefined) {
            
             const existing_candidate = await Candidate.findOne({
@@ -180,4 +218,4 @@ const insertCandidate = async (req, res) => {
 
 }
 
-module.exports = { test, form_validator, get_bmc_list, get_dist_lists, get_lb_type, get_lb, insertCandidate, candidateValidator };
+module.exports = { test, form_validator, get_bmc_list, get_dist_lists, getDistrictFromDb, get_lb_type , getLbTypeFromDb, get_lb, insertCandidate,getLbFromDb, candidateValidator };

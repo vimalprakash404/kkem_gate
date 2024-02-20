@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken")
 const privateKey = require("../service/getPrivateKey");
 const {body , validationResult}  = require("express-validator")
 const Candidate = require("../models/candidate")
-
+require("../models/localBody/district")
 // district list
 const   district = [
             "Alappuzha",
