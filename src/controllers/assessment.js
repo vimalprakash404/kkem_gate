@@ -23,7 +23,7 @@ assessment_validator =  [
 
 
 
-// createing master assessment 
+// creating master assessment 
 const create = async(req, res) => { 
     try {
         const errors = validationResult(req);
@@ -56,9 +56,10 @@ assessment_edit_validator =  [
 ]
 // edit assessment 
 const edit = async (req, res) => { 
+    const errors = validationResult(req);
     try {
         if(!errors.isEmpty()){
-            return res.status(403).json({errors: errors.message()})
+            return res.status(403).json({errors: errors.array()})
         }
         const assessment_id = req.params.assessment_id;
         const {test_id , test_name , test_description , platform} = req.body;
@@ -85,7 +86,7 @@ const edit = async (req, res) => {
     }
 }
 
-// removeing  assessment 
+// removing  assessment 
 const remove = async (req , res) => {
     try { 
         const assessment_id = req.params.assessment_id;
@@ -93,22 +94,41 @@ const remove = async (req , res) => {
         if (!existingAssessment) { 
             return res.status(404).json({error : "Assesment not Found"})
         }
-        await existingAssessment.deleteOne();
+        existingAssessment.status = 1 ;
+        await existingAssessment.save();
 
         return res.status(200).json({"status" :"success" , "message" : "Assesment deleted successfully"})
     }catch (err){
-        res.status(500).json({"eroor" : `Internal Server error ${err.message}`})
+        res.status(500).json({"error" : `Internal Server error ${err.message}`})
     }
 }
 
-const getAllAssessement =  async(req , res) => { 
-    const data = await Assessment.find({});
-    console.log(data)
-    return res.status(200).json(data)
+const getAllAssessment = async (req, res) => {
+    try {
+        const data = await Assessment.find({ status: 0 }).select('-__v').populate('platform');
+        
+        // Map and rename the attributes
+        const renamedData = data.map(assessment => ({
+            "id":assessment._id, 
+            "Test id": assessment.test_id,
+            "Test Name": assessment.test_name,
+            "Test Description": assessment.test_description,
+            "Platform" : assessment.platform.name,
+            "Created at" : assessment.created_at 
+        }));
+
+        console.log(renamedData);
+        return res.status(200).json(renamedData);
+    } catch (error) {
+        // Handle errors appropriately
+        console.error(error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
 }
+
 
 const getAssessment =async(objectId) => {
     return await Assessment.findOne({"_id":objectId})
 }
 
-module.exports = {assessment_validator , assessment_edit_validator, create  ,edit , remove ,getAssessment ,getAllAssessement}
+module.exports = {assessment_validator , assessment_edit_validator, create  ,edit , remove ,getAssessment ,getAllAssessment}

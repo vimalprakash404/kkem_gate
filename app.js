@@ -9,6 +9,7 @@ const assessment = require("./src/routes/assessment");
 const candidate = require("./src/routes/candidate")
 const user = require("./src/routes/user")
 const kkem = require("./src/routes/kkem")
+const admin = require("./src/routes/admin")
 const fs = require('fs');
 const test = require("./src/routes/test");
 const path = require('path');
@@ -43,29 +44,30 @@ app.use("",test);
 app.use("/candidate",candidate);
 app.use("",user);
 app.use("/kkem",kkem)
+app.use("/admin", admin);
 
-app.post('*', (req, res) => {
-  const requestData = {
-    url: req.url,
-    body: req.body,
-    header : req.headers , 
-    datetime: new Date().toLocaleString() // Get the current date and time
-  };
+// app.post('*', (req, res) => {
+//   const requestData = {
+//     url: req.url,
+//     body: req.body,
+//     header : req.headers , 
+//     datetime: new Date().toLocaleString() // Get the current date and time
+//   };
 
-  // Convert JavaScript object to JSON string
-  const jsonData = JSON.stringify(requestData);
+//   // Convert JavaScript object to JSON string
+//   const jsonData = JSON.stringify(requestData);
 
-  // Append JSON data to the file
-  fs.appendFile('request_data.txt', jsonData + '\n', (err) => {
-    if (err) {
-      console.error('Error appending to file:', err);
-      res.status(500).send('Error appending to file');
-    } else {
-      console.log('Request data appended to file successfully');
-      res.send('POST request received and data appended to file');
-    }
-  });
-});
+//   // Append JSON data to the file
+//   fs.appendFile('request_data.txt', jsonData + '\n', (err) => {
+//     if (err) {
+//       console.error('Error appending to file:', err);
+//       res.status(500).send('Error appending to file');
+//     } else {
+//       console.log('Request data appended to file successfully');
+//       res.send('POST request received and data appended to file');
+//     }
+//   });
+// });
 
 const credentials = { key: privateKey, cert: certificate };
 

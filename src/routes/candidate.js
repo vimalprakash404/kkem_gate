@@ -4,5 +4,5 @@ const {authenticateCandidate , isAuthenticatetedKKEM}=require("../middleware/aut
 const {login , candidate , validate_data ,get_candidate} = require("../controllers/candidate")
 router.post("/login",login);
 router.post("/",isAuthenticatetedKKEM,validate_data,candidate);
-router.get("/",authenticateCandidate,get_candidate)
+router.post("/get",authenticateCandidate,get_candidate)
 module.exports = router ;

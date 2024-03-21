@@ -107,4 +107,20 @@ const getPlatform= async (platform_id) => {
     return existingPlatform ;
 }
 
-module.exports = { create, platform_validator , platform_edit_validator , edit , remove , getPlatform};
+ const getAllPlatform = async( req , res) => {
+    const platformData = await platform.find({});
+    console.log("______Data is here _____ sssss")
+    return res.status(200).json({status :"success" , data : platformData})
+}
+
+async function getAllPlatformDetails(req, res){
+    const platformData = await platform.find({});
+    const data = platformData.map(platform => ({
+        "id" : platform._id,
+        "Name" : platform.name ,
+        "Base Url" : platform.baseUrl
+    }))
+    return res.status(200).json({status :"success" , data : data})
+}
+
+module.exports = { create, platform_validator , platform_edit_validator , edit , remove , getPlatform , getAllPlatform , getAllPlatformDetails};

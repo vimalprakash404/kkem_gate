@@ -57,4 +57,29 @@ function isAuthenticateted(req, res, next , key)
         throw new Error("Not Authorized")
     }
 }
-module.exports ={ isAuthenticatetedPlatform, isAuthenticatetedKKEM ,authenticateCandidate};
+
+
+function isAuthenticatedAdmin(req, res, next ){
+    const {authorization} = req.headers ;
+    console.log("headers:"+JSON.stringify(req.headers));
+    if (typeof authorization !== "undefined"){
+        let token = authorization;
+        
+        try {
+            jwt.verify(token,secretKey ,(err, user)=>{
+                if (err instanceof jwt.JsonWebTokenError) {
+                    return res.status(401).json({status : "error", error: "invalid token" })
+                    
+                }
+                req.user = user ; 
+                return next();
+            } )
+        }
+        catch(error){
+            return res.status(500).json({message :error})
+        }
+    }else{
+        return res.status(401).json({status : "error", error: "invalid token" })
+    }
+}
+module.exports ={ isAuthenticatetedPlatform, isAuthenticatetedKKEM ,authenticateCandidate , isAuthenticatedAdmin};

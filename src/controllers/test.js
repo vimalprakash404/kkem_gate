@@ -73,19 +73,21 @@ const create = async (req, res) => {
 
 const getAllResult = (req, res) => {
     try {
-        console.log("vimal ")
         test.find({})
-            .populate({
-                path: 'candidate',
-                select: '-_id'
-            })
-            .populate({
-                path: 'assessment',
-                select: '-_id'
-            })
+            .populate('candidate')
+            .populate('assessment')
             .then((tests) => {
-                console.log(tests);
-                return res.status(200).json({ status: "success", data: tests })
+                const newData = tests.map(test =>({
+                    "id" : test._id , 
+                    "Candidate Name" :  `${test.candidate.firstName} ${test.candidate.lastName}`,
+                    "Candidate Email" : test.candidate.email,
+                    "Candidate mobile" : test.candidate.mobile,
+                    "Dwms Id" : test.candidate.dwmsID,
+                    "Unique ID": test.uniqueID , 
+                    "Assessment" : test.assessment.test_name,
+                    "Status" :  (test.status===0?"pending":"result") 
+                }))
+                return res.status(200).json({ status: "success", data: newData })
             })
             .catch((err) => {
                 console.error(err);
@@ -93,6 +95,19 @@ const getAllResult = (req, res) => {
             });
     }
     catch (error) {
+        return res.status(500).json({ status: "error", message: "server" + err })
+    }
+}
+
+const getSingleResult =async (req , res)=>{
+    try {
+        const {id} = req.body;
+        console.log("id :"+id)
+        const  data = await test.findOne({_id : id})
+        const result = data.result["scores"];
+        return res.status(200).json({status : "success" , data : result})
+    }
+    catch(err) {
         return res.status(500).json({ status: "error", message: "server" + err })
     }
 }
@@ -186,4 +201,4 @@ const newUpdateResult = async (req, res) => {
 
 
 
-module.exports = { updateResult, create, test_validator, test_result_update_validator, getAllResult, newUpdateResult, new_update_validator };
+module.exports = { updateResult, create, test_validator, test_result_update_validator, getAllResult,getSingleResult, newUpdateResult, new_update_validator };
